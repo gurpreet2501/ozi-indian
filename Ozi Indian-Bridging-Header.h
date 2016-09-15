@@ -8,3 +8,6 @@
 #import "MMDrawerController+Storyboard.h"
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
 #import <MMDrawerController/MMDrawerBarButtonItem.h>
+
+
+#import "UIImageView+WebCache.h"
