@@ -88,32 +88,6 @@
             </objects>
             <point key="canvasLocation" x="-590" y="375"/>
         </scene>
-        <!--Contact-->
-        <scene sceneID="Nsi-dl-b7t">
-            <objects>
-                <viewController storyboardIdentifier="Contact" id="6Qh-hb-8va" customClass="ContactVC" customModule="Ozi_Indian" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wZL-10-8xK"/>
-                        <viewControllerLayoutGuide type="bottom" id="q6a-ka-7tp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Nzo-ST-hiM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.91440214200000003" green="1" blue="0.9927604096" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Contact" id="R6f-Zw-ps9">
-                        <barButtonItem key="leftBarButtonItem" title="Btn" id="lAr-Fy-02R" customClass="MMDrawerBarButtonItem">
-                            <connections>
-                                <action selector="menuTapped:" destination="6Qh-hb-8va" id="V8s-Kt-0UD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f2T-NY-Q0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="428" y="353"/>
-        </scene>
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -175,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="-386"/>
+            <point key="canvasLocation" x="-114" y="-400"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HvU-UM-Ane">
@@ -194,31 +168,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLX-fo-xDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-51" y="-386"/>
+            <point key="canvasLocation" x="-565" y="-400"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="KCV-7x-40D">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zow-Pd-BSX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QGM-ei-Ee5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="6Qh-hb-8va" kind="relationship" relationship="rootViewController" id="uuX-a8-l8q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c1B-ee-q0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-51" y="358"/>
-        </scene>
-        <!--Australia-->
+        <!--Detailed News-->
         <scene sceneID="Zbi-eF-hmZ">
             <objects>
-                <viewController storyboardIdentifier="Australia" id="DNY-qr-A4v" customClass="AustraliaVC" customModule="Ozi_Indian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Australia" id="DNY-qr-A4v" customClass="DetailedVC" customModule="Ozi_Indian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NK0-yn-KWx"/>
                         <viewControllerLayoutGuide type="bottom" id="Zwt-n8-t96"/>
@@ -228,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.87310532110000005" green="0.84771019940000003" blue="0.96716735730000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Australia" id="MzP-4R-aLW">
+                    <navigationItem key="navigationItem" title="Detailed News" id="MzP-4R-aLW">
                         <barButtonItem key="leftBarButtonItem" title="Btn" id="mVt-mw-yBz" customClass="MMDrawerBarButtonItem">
                             <connections>
                                 <action selector="menuTapped:" destination="DNY-qr-A4v" id="n9w-N4-A15"/>
@@ -239,26 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x36-8N-6kk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="1113"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="pAT-Eq-0IC">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aTN-Bn-k0l" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Rq-7t-GHe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="DNY-qr-A4v" kind="relationship" relationship="rootViewController" id="m7x-iD-FQ2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F68-3G-P1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-32" y="1113"/>
+            <point key="canvasLocation" x="429" y="-400"/>
         </scene>
     </scenes>
 </document>
