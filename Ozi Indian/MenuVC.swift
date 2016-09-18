@@ -10,14 +10,16 @@ import UIKit
 
 class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var menuArray:NSArray!
+   @IBOutlet weak var menuTableView: UITableView!
+   
+    var categoriesTitle:NSString!
+    var arrCategoriesTitle = NSMutableArray()
     
-    @IBOutlet weak var menuTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        menuArray = ["Home", "Contact", "Australia"]
+        apiCall()
         
         
     }
@@ -34,23 +36,78 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuArray.count
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return arrCategoriesTitle.count
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5.0
+    }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("CELL") as UITableViewCell!
+        var cell = tableView.dequeueReusableCellWithIdentifier("MenuCELL") as! CustomTVCHome!
         if (cell == nil) {
-            cell = UITableViewCell(style:.Default, reuseIdentifier: "CELL")
+            cell = CustomTVCHome(style:.Default, reuseIdentifier: "CELL")
         }
-        cell?.textLabel?.text = menuArray[indexPath.row] as? String
+        
+        cell.lblMenuCategories.text = arrCategoriesTitle[indexPath.section] as? String
+        
         return cell
     }
     
     
+    func apiCall()
+    {
+        // Code to hit the web service and getting the response
+        
+        
+        let nsUrl = NSURL(string: "http://oziindian.tv/api/category/lists")
+        let nsData = NSData(contentsOfURL: nsUrl!)
+        
+        do
+        {
+            let json = try NSJSONSerialization.JSONObjectWithData(nsData!, options: .MutableContainers) as! NSArray
+            print(json)
+            print("------------")
+            
+            for var i=0 ; i < json.count ; i++
+            {
+                categoriesTitle = json[i].valueForKey("title") as! NSString
+                self.arrCategoriesTitle.addObject(categoriesTitle)
+                
+            }
+            print("---------------------")
+            print(arrCategoriesTitle)
+            
+           menuTableView.reloadData()
+            
+        }//do
+            
+        catch
+        {
+            
+        }//catch
+        
+        
+        
+        
+        
+    }//api call
+    
+
+    
+    
+    
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.item == 0 {
+        if indexPath.row == 0 {
             
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeVC
             
@@ -61,7 +118,7 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
         }
-        if indexPath.item == 1 {
+        if indexPath.row == 1 {
             
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Contact") as! ContactVC
             
@@ -72,7 +129,7 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
         }
-        if indexPath.item == 2 {
+        if indexPath.row == 2 {
             
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Australia") as! AustraliaVC
             

@@ -10,8 +10,13 @@ import UIKit
 
 class CustomTVCHome: UITableViewCell {
 
+    //HomeVC
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lbl: UILabel!
+    
+    //MenuVC
+    @IBOutlet weak var lblMenuCategories: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
