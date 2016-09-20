@@ -16,16 +16,14 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var categoriesTitle:String!
     var idToSend:String!
 
-    
     var arrCategoriesTitle = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        apiCall()
+        apiCallCategoriesList()
  
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,50 +38,46 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return arrCategoriesTitle.count
-//    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return arrCategoriesTitle.count
     }
     
-//
-//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 5.0
-//    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 7.0
+    }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCELL") as! CustomTVCHome!
 
-        cell.lblMenuCategories.text = arrCategoriesTitle[indexPath.row] as? String
+        cell.lblMenuCategories.text = arrCategoriesTitle[indexPath.section] as? String
         
         return cell
     }
     
     
-    func apiCall()
+    func apiCallCategoriesList()
     {
-        // Code to hit the web service and getting the response
-        
-        
         let nsUrl = NSURL(string: "http://oziindian.tv/api/category/lists")
         let nsData = NSData(contentsOfURL: nsUrl!)
         
         do
         {
             json = try NSJSONSerialization.JSONObjectWithData(nsData!, options: .MutableContainers) as! NSArray
-            print(json)
-            print("------------")
+        //    print(json)
+           
             
             for var i=0 ; i < json.count ; i++
             {
                 categoriesTitle = json[i].valueForKey("title") as! String
                 self.arrCategoriesTitle.addObject(categoriesTitle)
-                
             }
-            print("---------------------")
+            print("--------------------------------------")
             print(arrCategoriesTitle)
             
            menuTableView.reloadData()
@@ -94,37 +88,35 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         {
             
         }//catch
-        
      
     }//api call
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeVC
         
-            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeVC
-            
-            let navigationController = self.mm_drawerController.centerViewController as! UINavigationController
+        categoriesTitle =  json[indexPath.section].valueForKey("title") as! String
+        viewController.titleReceived = categoriesTitle
+        print(categoriesTitle)
         
-            navigationController.viewControllers = [viewController]
         
-            categoriesTitle =  json[indexPath.row].valueForKey("title") as! String
-            
-            viewController.titleReceived = categoriesTitle
-            print(categoriesTitle)
-        
-          if let idToSend =  json[indexPath.row].valueForKey("id") as? String
-          {
+
+        if let idToSend =  json[indexPath.section].valueForKey("id") as? String
+        {
             print("ID is :\(idToSend)")
             viewController.idReceived = idToSend
-            
-            
         }
-      
         
-        
-            self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-            
+        let navigationController = self.mm_drawerController.centerViewController as! UINavigationController
 
+            self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: { (Bool) -> Void in
+                navigationController.viewControllers = [viewController]
+                
+            })
+       
+        
+       
+  
     }
 }

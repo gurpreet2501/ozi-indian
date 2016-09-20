@@ -24,6 +24,7 @@
 		C75BD89F1D8A89FF003A1680 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD88D1D8A89FF003A1680 /* UIImageView+HighlightedWebCache.m */; };
 		C75BD8A01D8A89FF003A1680 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD88F1D8A89FF003A1680 /* UIImageView+WebCache.m */; };
 		C75BD8A11D8A89FF003A1680 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD8911D8A89FF003A1680 /* UIView+WebCacheOperation.m */; };
+		C76C7DA31D901511003BC1B9 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76C7DA21D901511003BC1B9 /* DetailVC.swift */; };
 		C79DFAB81D8913D8006371E7 /* CustomTVCHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DFAB71D8913D8006371E7 /* CustomTVCHome.swift */; };
 		C79F0F601D86A2AA00AC8534 /* MMDrawerController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F0F5F1D86A2AA00AC8534 /* MMDrawerController+Storyboard.m */; };
 		C79F0F621D86A83200AC8534 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79F0F611D86A83200AC8534 /* MenuVC.swift */; };
@@ -33,7 +34,6 @@
 		C7B262941D83FECE004BCF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B262931D83FECE004BCF53 /* Assets.xcassets */; };
 		C7B262971D83FECE004BCF53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B262951D83FECE004BCF53 /* LaunchScreen.storyboard */; };
 		C7B8D7DD1D856C0400F97BAF /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = C7B8D7DC1D856C0400F97BAF /* PodFile */; };
-		C7DAD0931D87F8D90045F693 /* DetailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DAD0921D87F8D90045F693 /* DetailedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +85,7 @@
 		C75BD88F1D8A89FF003A1680 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		C75BD8901D8A89FF003A1680 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		C75BD8911D8A89FF003A1680 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		C76C7DA21D901511003BC1B9 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailVC.swift; path = ../DetailVC.swift; sourceTree = "<group>"; };
 		C79DFAB71D8913D8006371E7 /* CustomTVCHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTVCHome.swift; sourceTree = "<group>"; };
 		C79F0F5D1D86A2A900AC8534 /* Ozi Indian-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ozi Indian-Bridging-Header.h"; sourceTree = "<group>"; };
 		C79F0F5E1D86A2AA00AC8534 /* MMDrawerController+Storyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Storyboard.h"; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		C7B262961D83FECE004BCF53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7B262981D83FECE004BCF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7B8D7DC1D856C0400F97BAF /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; };
-		C7DAD0921D87F8D90045F693 /* DetailedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedVC.swift; sourceTree = "<group>"; };
 		D212A52A4ED58C739539B8D3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				C7B2628C1D83FECE004BCF53 /* AppDelegate.swift */,
-				C7DAD0921D87F8D90045F693 /* DetailedVC.swift */,
+				C76C7DA21D901511003BC1B9 /* DetailVC.swift */,
 				C7B2628E1D83FECE004BCF53 /* HomeVC.swift */,
 				C7B262901D83FECE004BCF53 /* Main.storyboard */,
 				C79F0F611D86A83200AC8534 /* MenuVC.swift */,
@@ -356,6 +356,7 @@
 				C79DFAB81D8913D8006371E7 /* CustomTVCHome.swift in Sources */,
 				C75BD8981D8A89FF003A1680 /* SDWebImageDownloaderOperation.m in Sources */,
 				C75BD8961D8A89FF003A1680 /* SDWebImageDecoder.m in Sources */,
+				C76C7DA31D901511003BC1B9 /* DetailVC.swift in Sources */,
 				C75BD89F1D8A89FF003A1680 /* UIImageView+HighlightedWebCache.m in Sources */,
 				C75BD8931D8A89FF003A1680 /* NSData+ImageContentType.m in Sources */,
 				C75BD8971D8A89FF003A1680 /* SDWebImageDownloader.m in Sources */,
@@ -363,7 +364,6 @@
 				C79F0F601D86A2AA00AC8534 /* MMDrawerController+Storyboard.m in Sources */,
 				C7B2628D1D83FECE004BCF53 /* AppDelegate.swift in Sources */,
 				C75BD8991D8A89FF003A1680 /* SDWebImageManager.m in Sources */,
-				C7DAD0931D87F8D90045F693 /* DetailedVC.swift in Sources */,
 				C75BD8941D8A89FF003A1680 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

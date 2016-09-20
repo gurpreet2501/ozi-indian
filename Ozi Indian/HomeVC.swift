@@ -22,33 +22,26 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var arrNewsTitle = NSMutableArray()
     var arrNewsImages = NSMutableArray()
     
-    var a = NSUserDefaults()
+    var refreshControl:UIRefreshControl!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-   
-        if titleReceived != nil
-        {
-        print(titleReceived)
-        self.navigationItem.title = titleReceived
-        }
+ 
+            if self.titleReceived != nil
+            {
+                print(self.titleReceived)
+                self.navigationItem.title = self.titleReceived
+            }
         
-        if idReceived != nil
-        {
-            print(idReceived)
-            apiCallWithId(idReceived)
-            
-        }
-//      if  NSUserDefaults.standardUserDefaults().boolForKey("DATAPRESENT") == false
-//      {
         
-//      }
-        else
-        {
-        apiCall()
-        }
+        process()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "process", forControlEvents: UIControlEvents.AllEvents)
+        homeNewsTV.addSubview(refreshControl)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +49,25 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    func process()
+    {
+        if idReceived != nil
+        {
+            print(idReceived)
+            apiCallWithId(idReceived)
+           
+
+        }
+        else
+        {
+            apiCall()
+            
+        }
+
+    }
+    
+    
+    
     @IBAction func menuTapped(sender: UIBarButtonItem) {
         
         self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
@@ -81,16 +93,10 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HomeCELL") as! CustomTVCHome
         
-      
          cell.lbl.text = arrNewsTitle[indexPath.section]  as? String
         
-//        let block: SDWebImageCompletionBlock! = {(image: UIImage!, error: NSError!, cacheType: SDImageCacheType!, imageURL: NSURL!) -> Void in
-//            print(self)
-//        }
-        
-        
-//        let url = NSURL(string: arrNewsImages[indexPath.section] as! String)
-//        cell.imgView.sd_setImageWithURL(url)
+        let url = NSURL(string: arrNewsImages[indexPath.section] as! String)
+        cell.imgView.sd_setImageWithURL(url)
         
         return cell
     }
@@ -98,12 +104,9 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func apiCall()
     {
-        
-        print(self.navigationItem.title)
-        
+   
         if self.navigationItem.title == "Home"
         {
-            // Code to hit the web service and getting the response
             let nsUrl = NSURL(string: "http://oziindian.tv/api/posts/all")
             let nsData = NSData(contentsOfURL: nsUrl!)
             
@@ -126,9 +129,10 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 print("++++++++++++")
                 print(arrNewsImages)
                 
-                homeNewsTV.reloadData()
-                
-//                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "DATAPRESENT")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.homeNewsTV.reloadData()
+                    self.refreshControl.endRefreshing()
+                })
                 
             }//do
                 
@@ -142,7 +146,6 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
     }//apiCall
         
-    
     
     
     
@@ -161,19 +164,37 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             print("---------------------------------------------------------------------------------------------------")
             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             
-            let newsMaster = json.objectAtIndex(0).valueForKey("newsmaster")
-            print(newsMaster)
-            let titles = newsMaster!.valueForKey("title") as! NSArray
-            print(titles)
-            arrNewsTitle.addObject(titles)
+            let news = json.valueForKey("newsmaster")
+            //print(news)
             
-            let images = newsMaster!.valueForKey("image") as! NSArray
-            print(images)
-            arrNewsImages.addObject(images)
+            let titles = news.valueForKey("title") as! NSArray
+            //print(titles)
             
+            for text in titles
+            {
+                for var i = 0 ; i < titles[0].count ; i++
+                {
+                    self.arrNewsTitle.addObject(text[i])
+                }
+            }
             
-            homeNewsTV.reloadData()
+            let images = news.valueForKey("image") as! NSArray
+            //print(images)
             
+            for image in images
+            {
+                for var i = 0 ; i < images[0].count ; i++
+                {
+                    self.arrNewsImages.addObject(image[i])
+                }
+            }
+            
+            print(arrNewsTitle)
+            print(arrNewsImages)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.homeNewsTV.reloadData()
+                 self.refreshControl.endRefreshing()
+            })
             //                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "DATAPRESENT")
             
         }//do
@@ -183,13 +204,16 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
         }//catch
         
-        
-        
-        
     } //apiCallWithId
     
     
-    
+    func refreshFunc()
+    {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.homeNewsTV.reloadData()
+            self.refreshControl.endRefreshing()
+        })
+    }
     
     
     }   //class ends

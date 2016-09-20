@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-//        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "DATAPRESENT")
         
         let window = application.windows.first as UIWindow?
         let drawer = window!.rootViewController as! MMDrawerController

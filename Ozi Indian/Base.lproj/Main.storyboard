@@ -34,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qjc-Nr-hcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1098" y="-173"/>
+            <point key="canvasLocation" x="-1656" y="-11"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="too-Ct-TUJ">
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePI-wG-wJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-590" y="375"/>
+            <point key="canvasLocation" x="-1036" y="398"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
@@ -149,7 +149,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="-400"/>
+            <point key="canvasLocation" x="-570" y="-312"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="M4Z-v3-iaS">
+            <objects>
+                <viewController id="S0K-19-uH2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qye-sN-K5F"/>
+                        <viewControllerLayoutGuide type="bottom" id="tdJ-m3-agi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1LA-Cm-YpN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgg-Ug-i8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="-312"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HvU-UM-Ane">
@@ -168,33 +187,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLX-fo-xDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-565" y="-400"/>
-        </scene>
-        <!--Detailed News-->
-        <scene sceneID="Zbi-eF-hmZ">
-            <objects>
-                <viewController storyboardIdentifier="Australia" id="DNY-qr-A4v" customClass="DetailedVC" customModule="Ozi_Indian" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NK0-yn-KWx"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zwt-n8-t96"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DMv-Gq-Tai">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.87310532110000005" green="0.84771019940000003" blue="0.96716735730000003" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Detailed News" id="MzP-4R-aLW">
-                        <barButtonItem key="leftBarButtonItem" title="Btn" id="mVt-mw-yBz" customClass="MMDrawerBarButtonItem">
-                            <connections>
-                                <action selector="menuTapped:" destination="DNY-qr-A4v" id="n9w-N4-A15"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x36-8N-6kk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="429" y="-400"/>
+            <point key="canvasLocation" x="-1036" y="-312"/>
         </scene>
     </scenes>
 </document>
