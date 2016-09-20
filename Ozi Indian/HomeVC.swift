@@ -13,16 +13,27 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var homeNewsTV: UITableView!
 
+    var refreshControl:UIRefreshControl!
+    
+    //Data received from MenuVC
     var idReceived:String!
     var titleReceived:String!
     
-    var newsTitle:NSString!
-    var newsImages:NSString!
+
+    var newsTitle:String!
+    var newsImages:String!
+    var newsDescription:String!
     
     var arrNewsTitle = NSMutableArray()
     var arrNewsImages = NSMutableArray()
+    var arrNewsDescription = NSMutableArray()
     
-    var refreshControl:UIRefreshControl!
+    
+    //Data to be sent to DetailVC
+    var newsTitleToSend:String!
+    var newsImageToSend:String!
+    var newsDescriptionToSend:String!
+    
     
     
     override func viewDidLoad() {
@@ -102,6 +113,38 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("You selected cell :\(indexPath.section)")
+        
+        newsTitleToSend = arrNewsTitle[indexPath.section]  as? String
+        newsImageToSend = arrNewsImages[indexPath.section] as? String
+        newsDescriptionToSend = arrNewsDescription[indexPath.section] as? String
+        performSegueWithIdentifier("HomeToDetail", sender: self)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        
+        if (segue.identifier == "HomeToDetail") {
+            // initialize new view controller and cast it as your view controller
+            let detailVC = segue.destinationViewController as? DetailVC
+            
+            detailVC?.newsTitleReceived = newsTitleToSend
+            detailVC?.newsImageReceived = newsImageToSend
+            detailVC?.newsDescriptionReceived = newsDescriptionToSend
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func apiCall()
     {
    
@@ -118,11 +161,15 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 
                 for var i=0 ; i < json.count ; i++
                 {
-                            newsTitle = json[i].valueForKey("title") as! NSString
-                            self.arrNewsTitle.addObject(newsTitle)
+                            newsTitle = json[i].valueForKey("title") as! String
+                            arrNewsTitle.addObject(newsTitle)
                     
-                             newsImages = json[i].valueForKey("image") as! NSString
+                             newsImages = json[i].valueForKey("image") as! String
                              arrNewsImages.addObject(newsImages)
+                    
+//                    newsDescription = json[i].valueForKey("ENTER THE KEY FOR DETAILED NEWS") as! String
+//                    arrNewsDescription.addObject(newsDescription)
+                    
                 }
                 print("---------------------")
                 print(arrNewsTitle)
@@ -161,41 +208,48 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         {
             let json = try NSJSONSerialization.JSONObjectWithData(nsCatData!, options: .MutableContainers) as! NSArray
            // print(json)
-            print("---------------------------------------------------------------------------------------------------")
             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             
             let news = json.valueForKey("newsmaster")
-            //print(news)
+            
             
             let titles = news.valueForKey("title") as! NSArray
             //print(titles)
-            
-            for text in titles
-            {
                 for var i = 0 ; i < titles[0].count ; i++
                 {
-                    self.arrNewsTitle.addObject(text[i])
+                    let textList = titles[0] as! NSArray
+                    self.arrNewsTitle.addObject(textList[i])
                 }
-            }
             
             let images = news.valueForKey("image") as! NSArray
             //print(images)
-            
-            for image in images
-            {
                 for var i = 0 ; i < images[0].count ; i++
                 {
-                    self.arrNewsImages.addObject(image[i])
+                    let imageList = images[0] as! NSArray
+                    self.arrNewsImages.addObject(imageList[i])
                 }
-            }
             
+            let details = news.valueForKey("description") as! NSArray
+            //print(details)
+                for var i = 0 ; i < details[0].count ; i++
+                {
+                    let detailList = details[0] as! NSArray
+                    self.arrNewsDescription.addObject(detailList[i])
+                }
+            
+            
+            print("*****************************************")
             print(arrNewsTitle)
+            print("*****************************************")
             print(arrNewsImages)
+            print("*****************************************")
+            print(arrNewsDescription)
+            print("*****************************************")
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.homeNewsTV.reloadData()
                  self.refreshControl.endRefreshing()
             })
-            //                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "DATAPRESENT")
             
         }//do
             

@@ -28,6 +28,7 @@
 		C79DFAB81D8913D8006371E7 /* CustomTVCHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DFAB71D8913D8006371E7 /* CustomTVCHome.swift */; };
 		C79F0F601D86A2AA00AC8534 /* MMDrawerController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F0F5F1D86A2AA00AC8534 /* MMDrawerController+Storyboard.m */; };
 		C79F0F621D86A83200AC8534 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79F0F611D86A83200AC8534 /* MenuVC.swift */; };
+		C7A2A8DF1D9158A1000A70FC /* VideosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A8DE1D9158A1000A70FC /* VideosVC.swift */; };
 		C7B2628D1D83FECE004BCF53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B2628C1D83FECE004BCF53 /* AppDelegate.swift */; };
 		C7B2628F1D83FECE004BCF53 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B2628E1D83FECE004BCF53 /* HomeVC.swift */; };
 		C7B262921D83FECE004BCF53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B262901D83FECE004BCF53 /* Main.storyboard */; };
@@ -91,6 +92,7 @@
 		C79F0F5E1D86A2AA00AC8534 /* MMDrawerController+Storyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Storyboard.h"; sourceTree = "<group>"; };
 		C79F0F5F1D86A2AA00AC8534 /* MMDrawerController+Storyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMDrawerController+Storyboard.m"; sourceTree = "<group>"; };
 		C79F0F611D86A83200AC8534 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		C7A2A8DE1D9158A1000A70FC /* VideosVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosVC.swift; sourceTree = "<group>"; };
 		C7B262891D83FECE004BCF53 /* Ozi Indian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ozi Indian.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B2628C1D83FECE004BCF53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7B2628E1D83FECE004BCF53 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				C7B2628C1D83FECE004BCF53 /* AppDelegate.swift */,
+				C7A2A8DE1D9158A1000A70FC /* VideosVC.swift */,
 				C76C7DA21D901511003BC1B9 /* DetailVC.swift */,
 				C7B2628E1D83FECE004BCF53 /* HomeVC.swift */,
 				C7B262901D83FECE004BCF53 /* Main.storyboard */,
@@ -255,6 +258,7 @@
 				TargetAttributes = {
 					C7B262881D83FECE004BCF53 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = JU88FCC8Q8;
 					};
 				};
 			};
@@ -353,6 +357,7 @@
 				C75BD8A11D8A89FF003A1680 /* UIView+WebCacheOperation.m in Sources */,
 				C75BD8921D8A89FF003A1680 /* MKAnnotationView+WebCache.m in Sources */,
 				C75BD89E1D8A89FF003A1680 /* UIImage+WebP.m in Sources */,
+				C7A2A8DF1D9158A1000A70FC /* VideosVC.swift in Sources */,
 				C79DFAB81D8913D8006371E7 /* CustomTVCHome.swift in Sources */,
 				C75BD8981D8A89FF003A1680 /* SDWebImageDownloaderOperation.m in Sources */,
 				C75BD8961D8A89FF003A1680 /* SDWebImageDecoder.m in Sources */,

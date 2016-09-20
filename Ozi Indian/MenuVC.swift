@@ -61,6 +61,46 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        categoriesTitle =  json[indexPath.section].valueForKey("title") as! String
+        
+        
+        if categoriesTitle == "Videos"
+        {
+            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Videos") as! VideosVC
+            viewController.titleReceived = categoriesTitle
+            let navigationController = self.mm_drawerController.centerViewController as! UINavigationController
+            
+            self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: { (Bool) -> Void in
+                navigationController.viewControllers = [viewController]            })
+        }//if
+        
+        
+        else
+        {
+        
+            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeVC
+            viewController.titleReceived = categoriesTitle
+       
+            if let idToSend =  json[indexPath.section].valueForKey("id") as? String
+            {
+                print("ID is :\(idToSend)")
+                viewController.idReceived = idToSend
+            }
+        
+            let navigationController = self.mm_drawerController.centerViewController as! UINavigationController
+        
+            self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: { (Bool) -> Void in
+                navigationController.viewControllers = [viewController]            })
+          }//else
+    
+   
+    }
+
+    
+    
+    
     func apiCallCategoriesList()
     {
         let nsUrl = NSURL(string: "http://oziindian.tv/api/category/lists")
@@ -92,31 +132,4 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }//api call
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeVC
-        
-        categoriesTitle =  json[indexPath.section].valueForKey("title") as! String
-        viewController.titleReceived = categoriesTitle
-        print(categoriesTitle)
-        
-        
-
-        if let idToSend =  json[indexPath.section].valueForKey("id") as? String
-        {
-            print("ID is :\(idToSend)")
-            viewController.idReceived = idToSend
-        }
-        
-        let navigationController = self.mm_drawerController.centerViewController as! UINavigationController
-
-            self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: { (Bool) -> Void in
-                navigationController.viewControllers = [viewController]
-                
-            })
-       
-        
-       
-  
-    }
 }
