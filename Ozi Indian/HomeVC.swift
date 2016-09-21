@@ -96,7 +96,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10.0
+        return 12.0
     }
     
 
@@ -167,14 +167,16 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                              newsImages = json[i].valueForKey("image") as! String
                              arrNewsImages.addObject(newsImages)
                     
-//                    newsDescription = json[i].valueForKey("ENTER THE KEY FOR DETAILED NEWS") as! String
-//                    arrNewsDescription.addObject(newsDescription)
+                            newsDescription = json[i].valueForKey("description") as! String
+                            arrNewsDescription.addObject(newsDescription)
                     
                 }
                 print("---------------------")
                 print(arrNewsTitle)
                 print("++++++++++++")
                 print(arrNewsImages)
+                print("---------------------")
+               // print(arrNewsDescription)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.homeNewsTV.reloadData()
