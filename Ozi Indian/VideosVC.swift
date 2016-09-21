@@ -74,23 +74,23 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        
          print("You selected cell :\(indexPath.section)")
+       
+        videosTitle = arrVideosTitle[indexPath.section]  as? String
+        videosURL = arrVideosURL[indexPath.section] as? String
+        performSegueWithIdentifier("VideosToPlayVideos", sender: self)
         
-            let url = NSURL(string: arrVideosURL[indexPath.section] as! String)
-            print(url)
-            let player = AVPlayer(URL: url!)
-            let playerViewController = AVPlayerViewController()
-            playerViewController.player = player
-            self.presentViewController(playerViewController, animated: true) {
-                if let validPlayer = playerViewController.player {
-                    validPlayer.play()
-                }
-          
-        
-    }
     
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        
+        if (segue.identifier == "VideosToPlayVideos") {
+            let playVideoVC = segue.destinationViewController as? PlayVideoVC
+            playVideoVC?.videoTitleReceived = videosTitle
+            playVideoVC?.videoURLReceived = videosURL
+        }
+    }
+
     
     
     func fetchVideos()

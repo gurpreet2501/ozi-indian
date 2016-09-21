@@ -66,13 +66,10 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         {
             print(idReceived)
             apiCallWithId(idReceived)
-           
-
         }
         else
         {
             apiCall()
-            
         }
 
     }
@@ -156,7 +153,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             do
             {
                 let json = try NSJSONSerialization.JSONObjectWithData(nsData!, options: .MutableContainers) as! NSArray
-                print(json)
+                //print(json)
                 print("------------")
                 
                 for var i=0 ; i < json.count ; i++
@@ -245,8 +242,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             print("*****************************************")
             print(arrNewsImages)
             print("*****************************************")
-            print(arrNewsDescription)
-            print("*****************************************")
+          //  print(arrNewsDescription)
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.homeNewsTV.reloadData()

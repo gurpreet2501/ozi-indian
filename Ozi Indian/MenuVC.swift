@@ -79,7 +79,6 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         else
         {
-        
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeVC
             viewController.titleReceived = categoriesTitle
        

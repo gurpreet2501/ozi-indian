@@ -145,11 +145,47 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="VideosTV" destination="cfZ-bj-L5h" id="dI0-wR-Pp3"/>
+                        <segue destination="BJh-hI-lCj" kind="show" identifier="VideosToPlayVideos" id="vg2-38-b1g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOr-la-BLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-109" y="398"/>
+        </scene>
+        <!--Play VideoVC-->
+        <scene sceneID="j4v-xT-2qK">
+            <objects>
+                <viewController id="BJh-hI-lCj" customClass="PlayVideoVC" customModule="Ozi_Indian" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mwk-aT-35H"/>
+                        <viewControllerLayoutGuide type="bottom" id="09v-f4-FCO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IuF-Zn-TCx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gd7-Gz-RRG">
+                                <rect key="frame" x="8" y="64" width="304" height="92"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p0j-wP-c6Q">
+                                <rect key="frame" x="1" y="164" width="318" height="205"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="lblVideoTitle" destination="gd7-Gz-RRG" id="ZX4-zu-Zbv"/>
+                        <outlet property="webViewPlayVideo" destination="p0j-wP-c6Q" id="XjZ-gp-aoL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6e-id-ggq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302" y="398"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
