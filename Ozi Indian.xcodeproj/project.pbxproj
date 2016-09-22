@@ -11,6 +11,7 @@
 		C74BA99C1D927DA000980625 /* PlayVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BA99B1D927DA000980625 /* PlayVideoVC.swift */; };
 		C74BA99E1D92943A00980625 /* LiveStreamingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BA99D1D92943A00980625 /* LiveStreamingVC.swift */; };
 		C75301221D93CD5B00EE9822 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75301211D93CD5B00EE9822 /* Reachability.swift */; };
+		C75301251D93F15D00EE9822 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C75301241D93F15C00EE9822 /* MBProgressHUD.m */; };
 		C75BD8921D8A89FF003A1680 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD8721D8A89FF003A1680 /* MKAnnotationView+WebCache.m */; };
 		C75BD8931D8A89FF003A1680 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD8741D8A89FF003A1680 /* NSData+ImageContentType.m */; };
 		C75BD8941D8A89FF003A1680 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD8761D8A89FF003A1680 /* SDImageCache.m */; };
@@ -59,6 +60,8 @@
 		C74BA99B1D927DA000980625 /* PlayVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoVC.swift; sourceTree = "<group>"; };
 		C74BA99D1D92943A00980625 /* LiveStreamingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStreamingVC.swift; sourceTree = "<group>"; };
 		C75301211D93CD5B00EE9822 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		C75301231D93F15C00EE9822 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		C75301241D93F15C00EE9822 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C75BD8711D8A89FF003A1680 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		C75BD8721D8A89FF003A1680 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		C75BD8731D8A89FF003A1680 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -131,6 +134,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C75301261D93F16300EE9822 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				C75301231D93F15C00EE9822 /* MBProgressHUD.h */,
+				C75301241D93F15C00EE9822 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		C75BD8701D8A898B003A1680 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,13 +184,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		C79DFAB91D8913DF006371E7 /* Custom TVC */ = {
+		C79DFAB91D8913DF006371E7 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
 				C75301211D93CD5B00EE9822 /* Reachability.swift */,
 				C79DFAB71D8913D8006371E7 /* CustomTVCHome.swift */,
 			);
-			name = "Custom TVC";
+			name = "Custom Classes";
 			sourceTree = "<group>";
 		};
 		C7B262801D83FECE004BCF53 = {
@@ -214,7 +226,8 @@
 				C76C7DA21D901511003BC1B9 /* DetailVC.swift */,
 				C7B2628E1D83FECE004BCF53 /* HomeVC.swift */,
 				C79F0F611D86A83200AC8534 /* MenuVC.swift */,
-				C79DFAB91D8913DF006371E7 /* Custom TVC */,
+				C75301261D93F16300EE9822 /* MBProgressHUD */,
+				C79DFAB91D8913DF006371E7 /* Custom Classes */,
 				C75BD8701D8A898B003A1680 /* SDWebImage */,
 				C7B262931D83FECE004BCF53 /* Assets.xcassets */,
 				C7B262951D83FECE004BCF53 /* LaunchScreen.storyboard */,
@@ -369,6 +382,7 @@
 				C75BD89E1D8A89FF003A1680 /* UIImage+WebP.m in Sources */,
 				C74BA99C1D927DA000980625 /* PlayVideoVC.swift in Sources */,
 				C75301221D93CD5B00EE9822 /* Reachability.swift in Sources */,
+				C75301251D93F15D00EE9822 /* MBProgressHUD.m in Sources */,
 				C7A2A8DF1D9158A1000A70FC /* VideosVC.swift in Sources */,
 				C79DFAB81D8913D8006371E7 /* CustomTVCHome.swift in Sources */,
 				C75BD8981D8A89FF003A1680 /* SDWebImageDownloaderOperation.m in Sources */,

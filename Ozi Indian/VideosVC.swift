@@ -31,10 +31,36 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         self.navigationItem.title = titleReceived
        
-        checkInternet()
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.VideosTV.hidden = true
+            self.progressHudStart()
+        })
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            self.checkInternet()
+        })
+        
         
     }
 
+    func progressHudStart()
+    {
+        let spinnerActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true);
+        
+        spinnerActivity.label.text = "Loading";
+        
+        //spinnerActivity.detailsLabel.text = "Please Wait !";
+        
+        spinnerActivity.userInteractionEnabled = false;
+    }
+    
+    func progressHudStop()
+    {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+    }
+
+    
+    
     func checkInternet()
     {
         if Reachability.isConnectedToNetwork() == true {
@@ -144,6 +170,8 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.VideosTV.reloadData()
+                self.progressHudStop()
+                self.VideosTV.hidden = false
             })
             
         }//do

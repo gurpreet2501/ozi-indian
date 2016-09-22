@@ -13,6 +13,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var homeNewsTV: UITableView!
 
+
  
     
     //Data received from MenuVC
@@ -45,11 +46,35 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 print(self.titleReceived)
                 self.navigationItem.title = self.titleReceived
             }
+
         
-       checkInternet()
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.homeNewsTV.hidden = true
+            self.progressHudStart()
+        })
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+           self.checkInternet()
+        })
         
     }
 
+    func progressHudStart()
+    {
+        let spinnerActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true);
+        
+        spinnerActivity.label.text = "Loading";
+        
+        //spinnerActivity.detailsLabel.text = "Please Wait !";
+        
+        spinnerActivity.userInteractionEnabled = false;
+    }
+    
+    func progressHudStop()
+    {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+    }
+    
     
     func checkInternet()
     {
@@ -184,6 +209,10 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.homeNewsTV.reloadData()
+                    self.progressHudStop()
+                    self.homeNewsTV.hidden = false
+
+                    
                 })
                 
             }//do
@@ -194,6 +223,16 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }//catch
        
         }//if
+        
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.progressHudStop()
+        
+        })
+
+        }
+        
 
             
     }//apiCall
@@ -254,6 +293,9 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.homeNewsTV.reloadData()
+                 self.progressHudStop()
+                self.homeNewsTV.hidden = false
+                
             })
             
           
