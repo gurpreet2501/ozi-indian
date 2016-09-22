@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePI-wG-wJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1890" y="678"/>
+            <point key="canvasLocation" x="-1968" y="668"/>
         </scene>
         <!--VideosVC-->
         <scene sceneID="f2p-Xq-Knr">
@@ -133,7 +133,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="gp7-gb-MAE">
                         <barButtonItem key="leftBarButtonItem" title="btn" id="WTQ-Op-G2F" customClass="MMDrawerBarButtonItem">
@@ -175,7 +175,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -227,7 +227,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="U6F-Ch-DdW">
                         <barButtonItem key="leftBarButtonItem" title="btn" id="1T2-st-w7v" customClass="MMDrawerBarButtonItem">
@@ -287,7 +287,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="FKg-3G-Byp">
                         <barButtonItem key="leftBarButtonItem" title="Btn" id="J9c-Sk-Ey0" customClass="MMDrawerBarButtonItem">
@@ -385,7 +385,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tdJ-m3-agi" firstAttribute="top" secondItem="jey-aF-wbE" secondAttribute="bottom" id="2cb-NU-sRF"/>
                             <constraint firstItem="jey-aF-wbE" firstAttribute="centerX" secondItem="1LA-Cm-YpN" secondAttribute="centerX" id="BNI-SA-98h"/>
