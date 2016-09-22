@@ -13,7 +13,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var homeNewsTV: UITableView!
 
-    var refreshControl:UIRefreshControl!
+ 
     
     //Data received from MenuVC
     var idReceived:String!
@@ -46,35 +46,48 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.navigationItem.title = self.titleReceived
             }
         
-        
-        process()
-        
-        refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "process", forControlEvents: UIControlEvents.AllEvents)
-        homeNewsTV.addSubview(refreshControl)
+       checkInternet()
         
     }
 
+    
+    func checkInternet()
+    {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            fetch()
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.Alert)
+            let okbtn = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+                self.checkInternet()
+            })
+            alert.addAction(okbtn)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+
+    }//check internet
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    func process()
+    func fetch()
     {
         if idReceived != nil
         {
-            print(idReceived)
-            apiCallWithId(idReceived)
+            fetchCategoryNews(idReceived)
         }
         else
         {
-            apiCall()
+            fetchAllNews()
         }
 
     }
-    
-    
+   
     
     @IBAction func menuTapped(sender: UIBarButtonItem) {
         
@@ -134,15 +147,8 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    func apiCall()
+    //THIS FUNCTION IS TO FETCH ALL THE NEWS FOR THE HOME PAGE
+    func fetchAllNews()
     {
    
         if self.navigationItem.title == "Home"
@@ -168,16 +174,16 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                             arrNewsDescription.addObject(newsDescription)
                     
                 }
-                print("---------------------")
+                print("-----------------------------------")
+                print("News Details for All News i.e. Home")
                 print(arrNewsTitle)
                 print("++++++++++++")
                 print(arrNewsImages)
-                print("---------------------")
+                print("-----------------------------------")
                // print(arrNewsDescription)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.homeNewsTV.reloadData()
-                    self.refreshControl.endRefreshing()
                 })
                 
             }//do
@@ -194,8 +200,8 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     
     
-    
-    func apiCallWithId(categoryid : String)
+    //THIS FUNCTION IS TO FETCH NEWS ACCORDING TO THE CATEGORY ID - THIS WILL BE EXECUTED FOR INDIAN, AUSTRALIAN, INTERNATIONAL AND ANY FUTURE ADDITIONS IN THE CATEGORIES LIST
+    func fetchCategoryNews(categoryid : String)
     {
         
         // Code to hit the web service and getting the response
@@ -205,8 +211,9 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         do
         {
-            let json = try NSJSONSerialization.JSONObjectWithData(nsCatData!, options: .MutableContainers) as! NSArray
-           // print(json)
+          let json = try NSJSONSerialization.JSONObjectWithData(nsCatData!, options: .MutableContainers) as! NSArray
+           
+            // print(json)
             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             
             let news = json.valueForKey("newsmaster")
@@ -238,17 +245,18 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             
             print("*****************************************")
+            print("News Details for category id - \(categoryid)")
             print(arrNewsTitle)
-            print("*****************************************")
+            print("***********")
             print(arrNewsImages)
             print("*****************************************")
           //  print(arrNewsDescription)
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.homeNewsTV.reloadData()
-                 self.refreshControl.endRefreshing()
             })
             
+          
         }//do
             
         catch
@@ -258,14 +266,6 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     } //apiCallWithId
     
-    
-    func refreshFunc()
-    {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.homeNewsTV.reloadData()
-            self.refreshControl.endRefreshing()
-        })
-    }
     
     
     }   //class ends

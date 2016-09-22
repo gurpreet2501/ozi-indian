@@ -7,24 +7,44 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-   @IBOutlet weak var menuTableView: UITableView!
+    @IBOutlet weak var menuTableView: UITableView!
    
     var json:NSArray!
     var categoriesTitle:String!
     var idToSend:String!
-
+    
     var arrCategoriesTitle = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        apiCallCategoriesList()
- 
+        checkInternet()
+        
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        if arrCategoriesTitle.count == 0
+        {
+            checkInternet()
+        }
+    }
+    
+    func checkInternet()
+    {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            fetchCategoriesList()
+        } else {
+            print("Internet connection FAILED")
+        }
+    }//check internet
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,7 +66,7 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
-
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 7.0
     }
@@ -54,7 +74,7 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCELL") as! CustomTVCHome!
-
+        
         cell.lblMenuCategories.text = arrCategoriesTitle[indexPath.section] as? String
         
         return cell
@@ -75,32 +95,41 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: { (Bool) -> Void in
                 navigationController.viewControllers = [viewController]            })
         }//if
-        
-        
+            
+        else if categoriesTitle == "Live Tv"
+        {
+            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("LiveStream") as! LiveStreamingVC
+            viewController.titleReceived = categoriesTitle
+            let navigationController = self.mm_drawerController.centerViewController as! UINavigationController
+            
+            self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: { (Bool) -> Void in
+                navigationController.viewControllers = [viewController]            })
+       
+        }//elseif
+            
         else
         {
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Home") as! HomeVC
             viewController.titleReceived = categoriesTitle
-       
+            
             if let idToSend =  json[indexPath.section].valueForKey("id") as? String
             {
                 print("ID is :\(idToSend)")
                 viewController.idReceived = idToSend
             }
-        
+            
             let navigationController = self.mm_drawerController.centerViewController as! UINavigationController
-        
+            
             self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: { (Bool) -> Void in
                 navigationController.viewControllers = [viewController]            })
-          }//else
-    
-   
+        }//else
+        
+        
     }
-
     
     
-    
-    func apiCallCategoriesList()
+    //THIS FUNCTION IS JUST TO FETCH THE LIST OF CATEGORIES
+    func fetchCategoriesList()
     {
         let nsUrl = NSURL(string: "http://oziindian.tv/api/category/lists")
         let nsData = NSData(contentsOfURL: nsUrl!)
@@ -108,8 +137,8 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         do
         {
             json = try NSJSONSerialization.JSONObjectWithData(nsData!, options: .MutableContainers) as! NSArray
-        //    print(json)
-           
+            //    print(json)
+            
             
             for var i=0 ; i < json.count ; i++
             {
@@ -119,7 +148,7 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("--------------------------------------")
             print(arrCategoriesTitle)
             
-           menuTableView.reloadData()
+            menuTableView.reloadData()
             
         }//do
             
@@ -127,7 +156,7 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         {
             
         }//catch
-     
+        
     }//api call
     
     

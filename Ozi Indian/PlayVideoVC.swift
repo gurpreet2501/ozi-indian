@@ -31,15 +31,31 @@ class PlayVideoVC: UIViewController {
         
         lblVideoTitle.text = videoTitleReceived
         
-        let url = NSURL (string: videoURLReceived)
-        let requestVideo = NSURLRequest(URL: url!)
-        webViewPlayVideo.loadRequest(requestVideo)
-    
+        checkInternet()
       
 
         
     }
 
+    func checkInternet()
+    {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            let url = NSURL (string: videoURLReceived)
+            let requestVideo = NSURLRequest(URL: url!)
+            webViewPlayVideo.loadRequest(requestVideo)
+
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.Alert)
+            let okbtn = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(okbtn)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+    }//check internet
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -47,7 +47,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    //    func liveTV(liveURL : String)
+    //    {
+    //
+    //        //            self.mm_drawerController.centerViewController as! UINavigationController
+    //        //            self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: nil)
+    //        //
+    //        //            let alertController = UIAlertController(title: "Live TV", message: "Select the type of video quality you want to play", preferredStyle: .Alert)
+    //        //
+    //        //            let lowbtn = UIAlertAction(title: "Low Quality", style: UIAlertActionStyle.Default) {
+    //        //                UIAlertAction in
+    //        //                NSLog("Low Pressed")
+    //        //                self.liveTV("http://live.wmncdn.net/oziindian/72781e965e0681e980034a778ee7067b.sdp/mono.m3u8")
+    //        //            }
+    //        //
+    //        //            let highbtn = UIAlertAction(title: "High Quality", style: UIAlertActionStyle.Default) {
+    //        //                UIAlertAction in
+    //        //                NSLog("High Pressed")
+    //        //                self.liveTV("http://live.wmncdn.net/oziindian/bbb19eae240ec100af921d511efc86a0.sdp/mono.m3u8")
+    //        //            }
+    //        //
+    //        //            let cancelbtn = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
+    //        //                UIAlertAction in
+    //        //                NSLog("Cancel Pressed")
+    //        //            }
+    //        //
+    //        //
+    //        //            alertController.addAction(lowbtn)
+    //        //            alertController.addAction(highbtn)
+    //        //            alertController.addAction(cancelbtn)
+    //        //            self.presentViewController(alertController, animated: true, completion: nil)
+    //
+    //
+    //        let videoURL = NSURL(string: liveURL)
+    //        let player = AVPlayer(URL: videoURL!)
+    //        let playerViewController = AVPlayerViewController()
+    //        playerViewController.player = player
+    //        self.presentViewController(playerViewController, animated: true) {
+    //            playerViewController.player!.play()
+    //        }
+    //        
+    //    }
 
 }
 

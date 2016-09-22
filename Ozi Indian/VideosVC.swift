@@ -30,11 +30,29 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
         
         self.navigationItem.title = titleReceived
-        fetchVideos()
-        
+       
+        checkInternet()
         
     }
 
+    func checkInternet()
+    {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+             fetchVideos()
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.Alert)
+            let okbtn = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+                self.checkInternet()
+            })
+            alert.addAction(okbtn)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+    }//check internet
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -126,7 +144,6 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.VideosTV.reloadData()
-                //self.refreshControl.endRefreshing()
             })
             
         }//do

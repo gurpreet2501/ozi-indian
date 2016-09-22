@@ -34,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qjc-Nr-hcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1656" y="-11"/>
+            <point key="canvasLocation" x="-1968" y="-89"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="too-Ct-TUJ">
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePI-wG-wJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1036" y="398"/>
+            <point key="canvasLocation" x="-1890" y="678"/>
         </scene>
         <!--VideosVC-->
         <scene sceneID="f2p-Xq-Knr">
@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOr-la-BLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-109" y="398"/>
+            <point key="canvasLocation" x="-1032" y="290"/>
         </scene>
         <!--Play VideoVC-->
         <scene sceneID="j4v-xT-2qK">
@@ -172,7 +172,7 @@
                             </label>
                             <webView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p0j-wP-c6Q">
                                 <rect key="frame" x="1" y="164" width="318" height="205"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,7 +185,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6e-id-ggq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="302" y="398"/>
+            <point key="canvasLocation" x="-602" y="290"/>
+        </scene>
+        <!--Live StreamingVC-->
+        <scene sceneID="Sb4-2O-bmb">
+            <objects>
+                <viewController storyboardIdentifier="LiveStream" id="edu-jZ-Uhj" customClass="LiveStreamingVC" customModule="Ozi_Indian" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b60-69-TQV"/>
+                        <viewControllerLayoutGuide type="bottom" id="A0p-fE-QFu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CZO-fl-542">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CW-gC-o8C">
+                                <rect key="frame" x="20" y="177" width="110" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="High ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnHighTapped:" destination="edu-jZ-Uhj" eventType="touchUpInside" id="P13-Zg-er7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rs-be-BPz">
+                                <rect key="frame" x="190" y="177" width="110" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Low">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLowTapped:" destination="edu-jZ-Uhj" eventType="touchUpInside" id="ufa-Kc-xg9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Video Quality" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEB-NT-0CV">
+                                <rect key="frame" x="20" y="92" width="280" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U6F-Ch-DdW">
+                        <barButtonItem key="leftBarButtonItem" title="btn" id="1T2-st-w7v" customClass="MMDrawerBarButtonItem">
+                            <connections>
+                                <action selector="menuButtonTapped:" destination="edu-jZ-Uhj" id="tTn-xs-jQH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4K-Yq-4FI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1032" y="983"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
@@ -249,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-570" y="-312"/>
+            <point key="canvasLocation" x="-1032" y="-378"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="M4Z-v3-iaS">
@@ -295,7 +350,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oziindianicon" translatesAutoresizingMaskIntoConstraints="NO" id="E4G-7i-Z0f">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OziIndianBanner" translatesAutoresizingMaskIntoConstraints="NO" id="E4G-7i-Z0f">
                                                 <rect key="frame" x="0.0" y="285" width="320" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="TpB-Pd-Fl2"/>
@@ -348,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgg-Ug-i8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-120" y="-312"/>
+            <point key="canvasLocation" x="-620" y="-378"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HvU-UM-Ane">
@@ -367,7 +422,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLX-fo-xDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1036" y="-312"/>
+            <point key="canvasLocation" x="-1442" y="-378"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jso-IO-koP">
@@ -386,10 +441,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tyx-oA-XZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-520" y="398"/>
+            <point key="canvasLocation" x="-1442" y="290"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FOt-nc-KCJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ShY-gX-pVB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Uh-0T-NmR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="edu-jZ-Uhj" kind="relationship" relationship="rootViewController" id="HS6-BS-aqp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ylK-ek-gdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1442" y="983"/>
         </scene>
     </scenes>
     <resources>
-        <image name="oziindianicon" width="400" height="400"/>
+        <image name="OziIndianBanner" width="2554" height="925"/>
     </resources>
 </document>

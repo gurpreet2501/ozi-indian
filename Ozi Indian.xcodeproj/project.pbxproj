@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B2FB4C2CE2F96433EAEAA0A4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 657DC4F22620F0DB53699311 /* libPods.a */; };
 		C74BA99C1D927DA000980625 /* PlayVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BA99B1D927DA000980625 /* PlayVideoVC.swift */; };
+		C74BA99E1D92943A00980625 /* LiveStreamingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BA99D1D92943A00980625 /* LiveStreamingVC.swift */; };
+		C75301221D93CD5B00EE9822 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75301211D93CD5B00EE9822 /* Reachability.swift */; };
 		C75BD8921D8A89FF003A1680 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD8721D8A89FF003A1680 /* MKAnnotationView+WebCache.m */; };
 		C75BD8931D8A89FF003A1680 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD8741D8A89FF003A1680 /* NSData+ImageContentType.m */; };
 		C75BD8941D8A89FF003A1680 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD8761D8A89FF003A1680 /* SDImageCache.m */; };
@@ -55,6 +57,8 @@
 		657DC4F22620F0DB53699311 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F6BFE6AD910C987FFA195F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C74BA99B1D927DA000980625 /* PlayVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoVC.swift; sourceTree = "<group>"; };
+		C74BA99D1D92943A00980625 /* LiveStreamingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStreamingVC.swift; sourceTree = "<group>"; };
+		C75301211D93CD5B00EE9822 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C75BD8711D8A89FF003A1680 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		C75BD8721D8A89FF003A1680 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		C75BD8731D8A89FF003A1680 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		C79DFAB91D8913DF006371E7 /* Custom TVC */ = {
 			isa = PBXGroup;
 			children = (
+				C75301211D93CD5B00EE9822 /* Reachability.swift */,
 				C79DFAB71D8913D8006371E7 /* CustomTVCHome.swift */,
 			);
 			name = "Custom TVC";
@@ -202,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				C7B2628C1D83FECE004BCF53 /* AppDelegate.swift */,
+				C74BA99D1D92943A00980625 /* LiveStreamingVC.swift */,
 				C74BA99B1D927DA000980625 /* PlayVideoVC.swift */,
 				C7A2A8DE1D9158A1000A70FC /* VideosVC.swift */,
 				C7B262901D83FECE004BCF53 /* Main.storyboard */,
@@ -261,6 +267,7 @@
 				TargetAttributes = {
 					C7B262881D83FECE004BCF53 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = JU88FCC8Q8;
 					};
 				};
 			};
@@ -356,10 +363,12 @@
 				C75BD89D1D8A89FF003A1680 /* UIImage+MultiFormat.m in Sources */,
 				C75BD89A1D8A89FF003A1680 /* SDWebImagePrefetcher.m in Sources */,
 				C7B2628F1D83FECE004BCF53 /* HomeVC.swift in Sources */,
+				C74BA99E1D92943A00980625 /* LiveStreamingVC.swift in Sources */,
 				C75BD8A11D8A89FF003A1680 /* UIView+WebCacheOperation.m in Sources */,
 				C75BD8921D8A89FF003A1680 /* MKAnnotationView+WebCache.m in Sources */,
 				C75BD89E1D8A89FF003A1680 /* UIImage+WebP.m in Sources */,
 				C74BA99C1D927DA000980625 /* PlayVideoVC.swift in Sources */,
+				C75301221D93CD5B00EE9822 /* Reachability.swift in Sources */,
 				C7A2A8DF1D9158A1000A70FC /* VideosVC.swift in Sources */,
 				C79DFAB81D8913D8006371E7 /* CustomTVCHome.swift in Sources */,
 				C75BD8981D8A89FF003A1680 /* SDWebImageDownloaderOperation.m in Sources */,
