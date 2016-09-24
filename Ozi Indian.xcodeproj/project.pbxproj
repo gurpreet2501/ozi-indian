@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B2FB4C2CE2F96433EAEAA0A4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 657DC4F22620F0DB53699311 /* libPods.a */; };
 		C74BA99C1D927DA000980625 /* PlayVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BA99B1D927DA000980625 /* PlayVideoVC.swift */; };
-		C74BA99E1D92943A00980625 /* LiveStreamingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BA99D1D92943A00980625 /* LiveStreamingVC.swift */; };
+		C74BA99E1D92943A00980625 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BA99D1D92943A00980625 /* ContactVC.swift */; };
 		C75301221D93CD5B00EE9822 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75301211D93CD5B00EE9822 /* Reachability.swift */; };
 		C75301251D93F15D00EE9822 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C75301241D93F15C00EE9822 /* MBProgressHUD.m */; };
 		C75BD8921D8A89FF003A1680 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BD8721D8A89FF003A1680 /* MKAnnotationView+WebCache.m */; };
@@ -58,7 +58,7 @@
 		657DC4F22620F0DB53699311 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F6BFE6AD910C987FFA195F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C74BA99B1D927DA000980625 /* PlayVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoVC.swift; sourceTree = "<group>"; };
-		C74BA99D1D92943A00980625 /* LiveStreamingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStreamingVC.swift; sourceTree = "<group>"; };
+		C74BA99D1D92943A00980625 /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		C75301211D93CD5B00EE9822 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C75301231D93F15C00EE9822 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		C75301241D93F15C00EE9822 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -184,6 +184,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		C7678CE41D94297600AA2766 /* VideoVC's */ = {
+			isa = PBXGroup;
+			children = (
+				C74BA99B1D927DA000980625 /* PlayVideoVC.swift */,
+				C7A2A8DE1D9158A1000A70FC /* VideosVC.swift */,
+			);
+			name = "VideoVC's";
+			sourceTree = "<group>";
+		};
 		C79DFAB91D8913DF006371E7 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,13 +228,12 @@
 			isa = PBXGroup;
 			children = (
 				C7B2628C1D83FECE004BCF53 /* AppDelegate.swift */,
-				C74BA99D1D92943A00980625 /* LiveStreamingVC.swift */,
-				C74BA99B1D927DA000980625 /* PlayVideoVC.swift */,
-				C7A2A8DE1D9158A1000A70FC /* VideosVC.swift */,
+				C74BA99D1D92943A00980625 /* ContactVC.swift */,
 				C7B262901D83FECE004BCF53 /* Main.storyboard */,
 				C76C7DA21D901511003BC1B9 /* DetailVC.swift */,
 				C7B2628E1D83FECE004BCF53 /* HomeVC.swift */,
 				C79F0F611D86A83200AC8534 /* MenuVC.swift */,
+				C7678CE41D94297600AA2766 /* VideoVC's */,
 				C75301261D93F16300EE9822 /* MBProgressHUD */,
 				C79DFAB91D8913DF006371E7 /* Custom Classes */,
 				C75BD8701D8A898B003A1680 /* SDWebImage */,
@@ -376,7 +384,7 @@
 				C75BD89D1D8A89FF003A1680 /* UIImage+MultiFormat.m in Sources */,
 				C75BD89A1D8A89FF003A1680 /* SDWebImagePrefetcher.m in Sources */,
 				C7B2628F1D83FECE004BCF53 /* HomeVC.swift in Sources */,
-				C74BA99E1D92943A00980625 /* LiveStreamingVC.swift in Sources */,
+				C74BA99E1D92943A00980625 /* ContactVC.swift in Sources */,
 				C75BD8A11D8A89FF003A1680 /* UIView+WebCacheOperation.m in Sources */,
 				C75BD8921D8A89FF003A1680 /* MKAnnotationView+WebCache.m in Sources */,
 				C75BD89E1D8A89FF003A1680 /* UIImage+WebP.m in Sources */,

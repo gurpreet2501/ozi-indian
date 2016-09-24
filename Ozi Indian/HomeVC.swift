@@ -8,11 +8,11 @@
 
 import UIKit
 
-
 class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var homeNewsTV: UITableView!
 
+    @IBOutlet weak var lblNoInternet: UILabel!
 
  
     
@@ -24,33 +24,37 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var newsTitle:String!
     var newsImages:String!
     var newsDescription:String!
+     var newsId:String!
     
     var arrNewsTitle = NSMutableArray()
     var arrNewsImages = NSMutableArray()
     var arrNewsDescription = NSMutableArray()
-    
+    var arrNewsId = NSMutableArray()
     
     //Data to be sent to DetailVC
     var newsTitleToSend:String!
     var newsImageToSend:String!
     var newsDescriptionToSend:String!
-    
+    var newsIdToSend:String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
- 
+        
             if self.titleReceived != nil
             {
+                
                 print(self.titleReceived)
-                self.navigationItem.title = self.titleReceived
+                self.navigationItem.title = self.titleReceived == "Home" ? "Ozi Indian" : self.titleReceived
+//                self.navigationItem.title = self.titleReceived
             }
+    
 
         
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.homeNewsTV.hidden = true
-            self.progressHudStart()
+            
         })
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
@@ -80,12 +84,19 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
+            lblNoInternet.hidden = true
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.progressHudStart()
+                
+            })
+
+           
             fetch()
         } else {
             print("Internet connection FAILED")
             let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.Alert)
             let okbtn = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
-                self.checkInternet()
+               self.lblNoInternet.hidden = false
             })
             alert.addAction(okbtn)
             self.presentViewController(alert, animated: true, completion: nil)
@@ -131,7 +142,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 12.0
+        return 8.0
     }
     
 
@@ -142,7 +153,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
          cell.lbl.text = arrNewsTitle[indexPath.section]  as? String
         
         let url = NSURL(string: arrNewsImages[indexPath.section] as! String)
-        cell.imgView.sd_setImageWithURL(url)
+        cell.imgView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "oziindiantitle"))
         
         return cell
     }
@@ -154,6 +165,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         newsTitleToSend = arrNewsTitle[indexPath.section]  as? String
         newsImageToSend = arrNewsImages[indexPath.section] as? String
         newsDescriptionToSend = arrNewsDescription[indexPath.section] as? String
+        newsIdToSend = arrNewsId[indexPath.section] as? String
         performSegueWithIdentifier("HomeToDetail", sender: self)
     }
     
@@ -167,7 +179,8 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             detailVC?.newsTitleReceived = newsTitleToSend
             detailVC?.newsImageReceived = newsImageToSend
             detailVC?.newsDescriptionReceived = newsDescriptionToSend
-            
+            detailVC?.newsIdReceived = newsIdToSend
+
         }
     }
     
@@ -176,7 +189,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func fetchAllNews()
     {
    
-        if self.navigationItem.title == "Home"
+        if self.navigationItem.title == "Ozi Indian"
         {
             let nsUrl = NSURL(string: "http://oziindian.tv/api/posts/all")
             let nsData = NSData(contentsOfURL: nsUrl!)
@@ -198,6 +211,9 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                             newsDescription = json[i].valueForKey("description") as! String
                             arrNewsDescription.addObject(newsDescription)
                     
+                            newsId = json[i].valueForKey("id") as! String
+                            arrNewsId.addObject(newsId)
+                    
                 }
                 print("-----------------------------------")
                 print("News Details for All News i.e. Home")
@@ -206,6 +222,9 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 print(arrNewsImages)
                 print("-----------------------------------")
                // print(arrNewsDescription)
+                print(arrNewsId)
+                
+                
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.homeNewsTV.reloadData()
@@ -282,6 +301,15 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     self.arrNewsDescription.addObject(detailList[i])
                 }
             
+            let ids = news.valueForKey("id") as! NSArray
+            //print(details)
+            for var i = 0 ; i < ids[0].count ; i++
+            {
+                let iDList = ids[0] as! NSArray
+                self.arrNewsId.addObject(iDList[i])
+            }
+
+            
             
             print("*****************************************")
             print("News Details for category id - \(categoryid)")
@@ -290,6 +318,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             print(arrNewsImages)
             print("*****************************************")
           //  print(arrNewsDescription)
+            print(arrNewsId)
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.homeNewsTV.reloadData()

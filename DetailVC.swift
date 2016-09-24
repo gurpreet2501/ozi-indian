@@ -18,6 +18,7 @@ class DetailVC: UIViewController {
     var newsTitleReceived:String!
     var newsImageReceived:String!
     var newsDescriptionReceived:String!
+    var newsIdReceived:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,9 @@ class DetailVC: UIViewController {
         print("************************")
         print(newsDescriptionReceived)
         print("************************")
+        print(newsIdReceived)
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action , target: self, action: "displayShareSheet")
         
         lblTitleNews.text = newsTitleReceived
         
@@ -49,6 +52,9 @@ class DetailVC: UIViewController {
     }
     
 
-
+    func displayShareSheet() {
+        let activityViewController = UIActivityViewController(activityItems: [newsTitleReceived , "http://m.oziindian.tv/detailnews.php?code=\(newsIdReceived)"], applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: {})
+    }
 
 }

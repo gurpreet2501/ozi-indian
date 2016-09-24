@@ -16,7 +16,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oziindiantitle" translatesAutoresizingMaskIntoConstraints="NO" id="e0Z-3O-o4i">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="e0Z-3O-o4i" secondAttribute="bottom" id="9rp-3n-hIx"/>
+                            <constraint firstItem="e0Z-3O-o4i" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="bJJ-tb-QVu"/>
+                            <constraint firstItem="e0Z-3O-o4i" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cBJ-Mk-d5N"/>
+                            <constraint firstItem="e0Z-3O-o4i" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qmg-UU-0p7"/>
+                            <constraint firstItem="e0Z-3O-o4i" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="t7t-HT-z4O"/>
+                            <constraint firstAttribute="trailing" secondItem="e0Z-3O-o4i" secondAttribute="trailing" id="wqH-6h-PIx"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -25,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="oziindiantitle" width="133" height="133"/>
+    </resources>
 </document>

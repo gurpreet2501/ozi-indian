@@ -13,7 +13,9 @@ import AVFoundation
 
 class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var lblNoInternet: UILabel!
     @IBOutlet weak var VideosTV: UITableView!
+    
     var titleReceived:String!
     
     var videosTitle:String!
@@ -33,7 +35,6 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
        
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.VideosTV.hidden = true
-            self.progressHudStart()
         })
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
@@ -65,12 +66,17 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.progressHudStart()
+            })
              fetchVideos()
+            lblNoInternet.hidden = true
+            
         } else {
             print("Internet connection FAILED")
             let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.Alert)
             let okbtn = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
-                self.checkInternet()
+                self.lblNoInternet.hidden = false
             })
             alert.addAction(okbtn)
             self.presentViewController(alert, animated: true, completion: nil)
@@ -99,7 +105,7 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10.0
+        return 8.0
     }
     
     
