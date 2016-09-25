@@ -35,19 +35,7 @@ class ContactVC: UIViewController {
         
     }
     
-    
-    
- 
-   
-    
-    
-
-
-
-    
-    
-    
-    
+        
 }
 
 

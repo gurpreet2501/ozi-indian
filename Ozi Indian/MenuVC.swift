@@ -11,6 +11,7 @@ import AVFoundation
 import AVKit
 
 class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var activityIndicatorMenu: UIActivityIndicatorView!
     
     @IBOutlet weak var menuTableView: UITableView!
    
@@ -25,14 +26,20 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        checkInternet()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            self.checkInternet()
+        })
+      
         
     }
     
     override func viewWillAppear(animated: Bool) {
         if arrCategoriesTitle.count == 0
         {
-            checkInternet()
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                self.checkInternet()
+            })
+          
         }
     }
     
@@ -40,13 +47,20 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            lblNoInternet.hidden = true
-            menuTableView.hidden = false
-            fetchCategoriesList()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.lblNoInternet.hidden = true
+                self.activityIndicatorMenu.startAnimating()
+            })
+            
+                self.fetchCategoriesList()
         } else {
             print("Internet connection FAILED")
-            lblNoInternet.hidden = false
-            menuTableView.hidden = true
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.lblNoInternet.hidden = false
+           self.menuTableView.hidden = true
+                
+            })
+           
         }
     }//check internet
 
@@ -219,7 +233,12 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("--------------------------------------")
             print(arrCategoriesTitle)
             
-            menuTableView.reloadData()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+           self.menuTableView.reloadData()
+                self.activityIndicatorMenu.stopAnimating()
+                self.menuTableView.hidden = false
+            })
+           
             
         }//do
             

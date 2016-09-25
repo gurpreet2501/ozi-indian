@@ -39,7 +39,7 @@
         <!--MenuVC-->
         <scene sceneID="too-Ct-TUJ">
             <objects>
-                <viewController id="bDp-og-PLs" customClass="MenuVC" customModule="Ozi_Indian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Menu" id="bDp-og-PLs" customClass="MenuVC" customModule="Ozi_Indian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WeO-j5-oiM"/>
                         <viewControllerLayoutGuide type="bottom" id="gG8-zn-9xX"/>
@@ -54,6 +54,10 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LB0-UG-sdB">
+                                <rect key="frame" x="88" y="265" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CELL" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgB-fc-NCk">
                                 <rect key="frame" x="0.0" y="76" width="320" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,7 +96,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gG8-zn-9xX" firstAttribute="top" secondItem="hgB-fc-NCk" secondAttribute="bottom" id="9ze-HM-h6C"/>
+                            <constraint firstItem="LB0-UG-sdB" firstAttribute="top" secondItem="WeO-j5-oiM" secondAttribute="bottom" constant="245" id="Ssy-3W-sbB"/>
                             <constraint firstAttribute="trailing" secondItem="hgB-fc-NCk" secondAttribute="trailing" id="VjY-Nr-5to"/>
+                            <constraint firstItem="gG8-zn-9xX" firstAttribute="top" secondItem="LB0-UG-sdB" secondAttribute="bottom" constant="266" id="YnG-ja-fWE"/>
+                            <constraint firstItem="LB0-UG-sdB" firstAttribute="leading" secondItem="NnO-LZ-hbE" secondAttribute="leading" constant="88" id="YuH-2g-4Tb"/>
+                            <constraint firstItem="LB0-UG-sdB" firstAttribute="centerY" secondItem="NnO-LZ-hbE" secondAttribute="centerY" id="hOa-QG-xsP"/>
                             <constraint firstItem="hgB-fc-NCk" firstAttribute="top" secondItem="WeO-j5-oiM" secondAttribute="bottom" constant="56" id="rCy-iE-co8"/>
                             <constraint firstItem="hgB-fc-NCk" firstAttribute="leading" secondItem="NnO-LZ-hbE" secondAttribute="leading" id="wgE-tp-DHU"/>
                             <constraint firstItem="Eim-yH-MUr" firstAttribute="centerY" secondItem="NnO-LZ-hbE" secondAttribute="centerY" id="xlc-ZU-bLU"/>
@@ -101,6 +109,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="activityIndicatorMenu" destination="LB0-UG-sdB" id="6Nl-EK-CvG"/>
                         <outlet property="lblNoInternet" destination="Eim-yH-MUr" id="f89-3X-g0s"/>
                         <outlet property="menuTableView" destination="hgB-fc-NCk" id="ZUh-um-p5b"/>
                     </connections>

@@ -230,8 +230,6 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     self.homeNewsTV.reloadData()
                     self.progressHudStop()
                     self.homeNewsTV.hidden = false
-
-                    
                 })
                 
             }//do
@@ -252,8 +250,6 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
         }
         
-
-            
     }//apiCall
         
     
