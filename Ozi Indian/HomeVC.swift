@@ -41,13 +41,19 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-            if self.titleReceived != nil
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+      //
+            if self.titleReceived == nil || self.titleReceived == "Home"
             {
-                
+              navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ChalkboardSE-Bold", size: 28)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
+            }
+        
+            else if self.titleReceived != nil
+            {
                 print(self.titleReceived)
-                self.navigationItem.title = self.titleReceived == "Home" ? "Ozi Indian" : self.titleReceived
-//                self.navigationItem.title = self.titleReceived
+                self.navigationItem.title = self.titleReceived
+                 navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ChalkboardSE-Bold", size: 24)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
             }
     
 
@@ -153,7 +159,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
          cell.lbl.text = arrNewsTitle[indexPath.section]  as? String
         
         let url = NSURL(string: arrNewsImages[indexPath.section] as! String)
-        cell.imgView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "oziindiantitle"))
+        cell.imgView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "oziPlaceholder"))
         
         return cell
     }
@@ -189,8 +195,8 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func fetchAllNews()
     {
    
-        if self.navigationItem.title == "Ozi Indian"
-        {
+//        if self.navigationItem.title == "Ozi Indian"
+//        {
             let nsUrl = NSURL(string: "http://oziindian.tv/api/posts/all")
             let nsData = NSData(contentsOfURL: nsUrl!)
             
@@ -239,16 +245,16 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 
             }//catch
        
-        }//if
-        
-        else
-        {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.progressHudStop()
-        
-        })
-
-        }
+//        }if
+    
+//        else
+//        {
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//            self.progressHudStop()
+//        
+//        })
+//
+//        }
         
     }//apiCall
         

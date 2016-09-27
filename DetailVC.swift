@@ -37,7 +37,7 @@ class DetailVC: UIViewController {
         lblTitleNews.text = newsTitleReceived
         
         let url = NSURL(string: newsImageReceived)
-        imgViewNews.sd_setImageWithURL(url)
+        imgViewNews.sd_setImageWithURL(url, placeholderImage: UIImage(named: "oziPlaceholder"))
         
         lblDetailNews.text = newsDescriptionReceived
         

@@ -20,6 +20,7 @@ class ContactVC: UIViewController {
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = titleReceived
+         navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ChalkboardSE-Bold", size: 24)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
         
     }
 

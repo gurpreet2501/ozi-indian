@@ -32,7 +32,7 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
         
         self.navigationItem.title = titleReceived
-       
+        navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ChalkboardSE-Bold", size: 24)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.VideosTV.hidden = true
         })
@@ -116,7 +116,7 @@ class VideosVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell.lblVideosTitle.text = arrVideosTitle[indexPath.section]  as? String
         
         let url = NSURL(string: arrVideosImage[indexPath.section] as! String)
-        cell.imgVideosImage.sd_setImageWithURL(url)
+        cell.imgVideosImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "oziPlaceholder"))
         
         return cell
     }

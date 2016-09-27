@@ -17,28 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oziindiantitle" translatesAutoresizingMaskIntoConstraints="NO" id="e0Z-3O-o4i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oziIndian" translatesAutoresizingMaskIntoConstraints="NO" id="juI-wW-SXD">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="e0Z-3O-o4i" secondAttribute="bottom" id="9rp-3n-hIx"/>
-                            <constraint firstItem="e0Z-3O-o4i" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="bJJ-tb-QVu"/>
-                            <constraint firstItem="e0Z-3O-o4i" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cBJ-Mk-d5N"/>
-                            <constraint firstItem="e0Z-3O-o4i" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qmg-UU-0p7"/>
-                            <constraint firstItem="e0Z-3O-o4i" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="t7t-HT-z4O"/>
-                            <constraint firstAttribute="trailing" secondItem="e0Z-3O-o4i" secondAttribute="trailing" id="wqH-6h-PIx"/>
+                            <constraint firstItem="juI-wW-SXD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="CFv-69-v3I"/>
+                            <constraint firstItem="juI-wW-SXD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="HKf-z3-YJk"/>
+                            <constraint firstAttribute="trailing" secondItem="juI-wW-SXD" secondAttribute="trailing" id="IGq-M0-MSp"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="juI-wW-SXD" secondAttribute="bottom" id="Tvl-HU-srv"/>
+                            <constraint firstItem="juI-wW-SXD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="XCz-BO-Cf2"/>
+                            <constraint firstItem="juI-wW-SXD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rSL-vX-xHb"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="259" y="349"/>
         </scene>
     </scenes>
     <resources>
-        <image name="oziindiantitle" width="133" height="133"/>
+        <image name="oziIndian" width="819" height="1545"/>
     </resources>
 </document>

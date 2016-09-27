@@ -24,24 +24,33 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            self.checkInternet()
-        })
       
         
-    }
-    
-    override func viewWillAppear(animated: Bool) {
+        // Do any additional setup after loading the view.
         if arrCategoriesTitle.count == 0
         {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 self.checkInternet()
             })
-          
+            
         }
+        
     }
+
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        if arrCategoriesTitle.count == 0
+        {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                self.checkInternet()
+            })
+            
+        }
+
+    }
+    
+    
     
     func checkInternet()
     {
@@ -125,13 +134,6 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         else if categoriesTitle == "Live Tv"
         {
-//            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("LiveStream") as! LiveStreamingVC
-//            viewController.titleReceived = categoriesTitle
-//            let navigationController = self.mm_drawerController.centerViewController as! UINavigationController
-//            
-//            self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: { (Bool) -> Void in
-//                navigationController.viewControllers = [viewController]            })
-       
                         self.mm_drawerController.centerViewController as! UINavigationController
                         self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: nil)
             
@@ -173,7 +175,6 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         self.mm_drawerController.toggleDrawerSide(.Left, animated: true, completion: { (Bool) -> Void in
                             navigationController.viewControllers = [viewController]            })
 
-        
         }//else if
             
             
@@ -234,7 +235,7 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print(arrCategoriesTitle)
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-           self.menuTableView.reloadData()
+                self.menuTableView.reloadData()
                 self.activityIndicatorMenu.stopAnimating()
                 self.menuTableView.hidden = false
             })
