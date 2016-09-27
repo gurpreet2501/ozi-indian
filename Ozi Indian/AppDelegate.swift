@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "CALL")
+        
       UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         let window = application.windows.first as UIWindow?

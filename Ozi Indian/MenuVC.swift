@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
+
 class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var activityIndicatorMenu: UIActivityIndicatorView!
     
@@ -24,33 +25,33 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        
+        menuTableView.backgroundView = nil
+        menuTableView.backgroundColor = UIColor.clearColor()
+       
         // Do any additional setup after loading the view.
-        if arrCategoriesTitle.count == 0
+        if NSUserDefaults.standardUserDefaults().boolForKey("CALL") == true && arrCategoriesTitle.count == 0
         {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 self.checkInternet()
             })
             
         }
+
         
     }
 
-    
-    
-    override func viewDidAppear(animated: Bool) {
-        if arrCategoriesTitle.count == 0
+
+    override func viewWillAppear(animated: Bool) {
+       
+        if NSUserDefaults.standardUserDefaults().boolForKey("CALL") == true && arrCategoriesTitle.count == 0
         {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 self.checkInternet()
             })
-            
         }
-
     }
-    
-    
+  
+
     
     func checkInternet()
     {
@@ -60,7 +61,7 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.lblNoInternet.hidden = true
                 self.activityIndicatorMenu.startAnimating()
             })
-            
+                NSUserDefaults.standardUserDefaults().setBool(false, forKey: "CALL")
                 self.fetchCategoriesList()
         } else {
             print("Internet connection FAILED")
@@ -99,28 +100,39 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1.5
     }
     
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-//    {
-//        let headerView = UIView(frame: CGRectMake(0, 0, tableView.bounds.size.width, 7))
-//      
-//            headerView.backgroundColor = UIColor.grayColor()
-//    
-//        return headerView
-//    }
+   
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let headerView = UIView(frame: CGRectMake(0, 0, tableView.bounds.size.width, 7))
+      
+            headerView.backgroundColor = UIColor.clearColor()
+    
+        return headerView
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MenuCELL") as! CustomTVCHome!
+       
         
+        let cell = tableView.dequeueReusableCellWithIdentifier("MenuCELL") as! CustomTVCHome!
+        cell.backgroundColor = UIColor.clearColor()
         cell.lblMenuCategories.text = arrCategoriesTitle[indexPath.section] as? String
         
         return cell
     }
     
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell:CustomTVCHome = menuTableView.cellForRowAtIndexPath(indexPath) as! CustomTVCHome
+        selectedCell.contentView.backgroundColor = UIColor.blackColor()
+        selectedCell.lblMenuCategories.textColor = UIColor.whiteColor()
+
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         categoriesTitle =  json[indexPath.section].valueForKey("title") as! String
-        
+        let selectedCell:CustomTVCHome = menuTableView.cellForRowAtIndexPath(indexPath) as! CustomTVCHome
+        selectedCell.contentView.backgroundColor = UIColor.whiteColor()
+        selectedCell.lblMenuCategories.textColor = UIColor.blackColor()
         
         if categoriesTitle == "Videos"
         {

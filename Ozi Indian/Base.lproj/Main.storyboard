@@ -48,21 +48,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Internet Unavailable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eim-yH-MUr">
-                                <rect key="frame" x="25" y="274" width="161" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LB0-UG-sdB">
-                                <rect key="frame" x="88" y="265" width="37" height="37"/>
-                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CELL" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgB-fc-NCk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBackground" translatesAutoresizingMaskIntoConstraints="NO" id="cxq-Xi-3VN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CELL" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgB-fc-NCk">
                                 <rect key="frame" x="0.0" y="76" width="320" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCELL" id="kp8-WV-0Ag" customClass="CustomTVCHome" customModule="Ozi_Indian" customModuleProvider="target">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCELL" id="kp8-WV-0Ag" customClass="CustomTVCHome" customModule="Ozi_Indian" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kp8-WV-0Ag" id="4KZ-ea-94w">
@@ -72,6 +65,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wf5-iY-uxm">
                                                     <rect key="frame" x="13" y="5" width="299" height="34"/>
                                                     <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -92,14 +86,27 @@
                                     <outlet property="delegate" destination="bDp-og-PLs" id="pUu-jk-hV1"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Internet Unavailable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eim-yH-MUr">
+                                <rect key="frame" x="25" y="274" width="161" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LB0-UG-sdB">
+                                <rect key="frame" x="88" y="265" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cxq-Xi-3VN" firstAttribute="top" secondItem="NnO-LZ-hbE" secondAttribute="top" id="3Pn-dj-Wvc"/>
                             <constraint firstItem="gG8-zn-9xX" firstAttribute="top" secondItem="hgB-fc-NCk" secondAttribute="bottom" id="9ze-HM-h6C"/>
+                            <constraint firstItem="gG8-zn-9xX" firstAttribute="top" secondItem="cxq-Xi-3VN" secondAttribute="bottom" id="Qdb-ZQ-lNz"/>
                             <constraint firstItem="LB0-UG-sdB" firstAttribute="top" secondItem="WeO-j5-oiM" secondAttribute="bottom" constant="245" id="Ssy-3W-sbB"/>
                             <constraint firstAttribute="trailing" secondItem="hgB-fc-NCk" secondAttribute="trailing" id="VjY-Nr-5to"/>
                             <constraint firstItem="gG8-zn-9xX" firstAttribute="top" secondItem="LB0-UG-sdB" secondAttribute="bottom" constant="266" id="YnG-ja-fWE"/>
                             <constraint firstItem="LB0-UG-sdB" firstAttribute="leading" secondItem="NnO-LZ-hbE" secondAttribute="leading" constant="88" id="YuH-2g-4Tb"/>
+                            <constraint firstAttribute="trailing" secondItem="cxq-Xi-3VN" secondAttribute="trailing" id="bnH-BW-Glx"/>
+                            <constraint firstItem="cxq-Xi-3VN" firstAttribute="leading" secondItem="NnO-LZ-hbE" secondAttribute="leading" id="c0L-3Q-5xy"/>
                             <constraint firstItem="LB0-UG-sdB" firstAttribute="centerY" secondItem="NnO-LZ-hbE" secondAttribute="centerY" id="hOa-QG-xsP"/>
                             <constraint firstItem="hgB-fc-NCk" firstAttribute="top" secondItem="WeO-j5-oiM" secondAttribute="bottom" constant="56" id="rCy-iE-co8"/>
                             <constraint firstItem="hgB-fc-NCk" firstAttribute="leading" secondItem="NnO-LZ-hbE" secondAttribute="leading" id="wgE-tp-DHU"/>
@@ -567,4 +574,7 @@ Website : oziindian.tv, oziindian.com, oziindian.in, oziindian.com.au</string>
             <point key="canvasLocation" x="-1420" y="1018"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menuBackground" width="213" height="314"/>
+    </resources>
 </document>
